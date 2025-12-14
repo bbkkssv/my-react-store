@@ -4,7 +4,11 @@ import Product from "../components/Product";
 function Catalog() {
   return (
     <div className="catalog">
-        <h1>Product Catalog</h1>
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
       <Product />
       <Product />
       <Product />
