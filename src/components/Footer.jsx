@@ -1,11 +1,11 @@
-import "./Footer.css"
-
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <p>My Online Store 2025</p>
+    <footer className="bg-dark text-light border-top border-secondary py-4 mt-auto">
+      <div className="container">
+        <div className="text-center">
+          <p className="mb-0 text-light">© My Online Store 2025. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );
