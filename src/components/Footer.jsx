@@ -1,4 +1,4 @@
-
+// Footer component
 function Footer() {
   return (
     <footer className="bg-dark text-light border-top border-secondary py-4 mt-auto">

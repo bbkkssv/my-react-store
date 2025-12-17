@@ -1,6 +1,21 @@
 import QuantityPicker from "./QuantityPicker";
+import { useState } from 'react';
 
+// Product card component - displays product info and handles quantity/total calculation
 function Product(props){
+    const [quantity, setQuantity] = useState(1);
+
+    // Updates quantity when changed in QuantityPicker
+    function handleQuantityChange(qty) {
+        setQuantity(qty);
+    }
+
+    // Calculates total price based on quantity
+    function getTotal() {
+        let total = props.data.price * quantity;
+        return total.toFixed(2);
+    }
+
     return(
         <div className="card bg-dark text-light border-secondary h-100 shadow-lg">
             <img src={"/images/" + props.data.image} className="card-img-top" alt={props.data.title} style={{height: '280px', objectFit: 'cover'}} />
@@ -14,10 +29,10 @@ function Product(props){
                     </div>
                     <div className="row mb-3">
                         <div className="col-6 text-light">Total:</div>
-                        <div className="col-6 text-end text-primary fw-bold fs-5">${props.data.price.toFixed(2)}</div>
+                        <div className="col-6 text-end text-primary fw-bold fs-5">${getTotal()}</div>
                     </div>
                     <div className="border-top border-secondary pt-3">
-                        <QuantityPicker />
+                        <QuantityPicker onChange={handleQuantityChange} />
                     </div>
                 </div>
             </div>

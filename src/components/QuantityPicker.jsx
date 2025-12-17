@@ -1,15 +1,22 @@
 import { useState } from "react";
 
-function QuantityPicker(){
+// Quantity selector with +/- buttons
+function QuantityPicker(props){
     const [quantity, setQuantity] = useState(1);
 
+    // Increases quantity and notifies parent
     function handleIncrease() {
-        setQuantity(quantity + 1);
+        let nextVal = quantity + 1;
+        setQuantity(nextVal);
+        props.onChange(nextVal);
     }
 
+    // Decreases quantity (min 1) and notifies parent
     function handleDecrease() {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
+        let nextVal = quantity - 1;
+        if (nextVal > 0) {
+            setQuantity(nextVal);
+            props.onChange(nextVal);
         }
     }
 

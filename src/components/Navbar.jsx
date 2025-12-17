@@ -1,4 +1,4 @@
-
+// Navigation bar component
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
