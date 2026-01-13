@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 // Navigation bar component
 function Navbar() {
   return (
@@ -11,19 +13,37 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a href="#home" className="nav-link text-light">Home</a>
+              <Link className="nav-link" to={"/"}>
+                Home
+              </Link>
             </li>
+
             <li className="nav-item">
-              <a href="#catalog" className="nav-link text-light">Catalog</a>
+              <Link className="nav-link" to={"/about"}>
+                About
+              </Link>
             </li>
+
             <li className="nav-item">
-              <a href="#about" className="nav-link text-light">About</a>
+              <Link className="nav-link" to={"/catalog"}>
+                Catalog
+              </Link>
             </li>
+
             <li className="nav-item">
-              <a href="#contact" className="nav-link text-light">Contact</a>
+              <Link className="nav-link" to={"/contact"}>
+                Contact
+              </Link>
             </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to={"/admin"}>
+                Admin
+              </Link>
+            </li>
+
           </ul>
         </div>
       </div>

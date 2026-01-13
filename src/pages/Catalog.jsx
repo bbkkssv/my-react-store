@@ -1,3 +1,4 @@
+import './Catalog.css';
 import Product from "../components/Product";
 import { useEffect,useState } from "react";
 import DataService from "../services/dataService";
