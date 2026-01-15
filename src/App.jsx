@@ -11,16 +11,15 @@ import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className='bg-dark' data-bs-theme="dark">
+      <div className='bg-wa-cream min-vh-100 d-flex flex-column'>
         <Navbar />
 
-        <main className='bg-dark text-light py-4'>
+        <main className='bg-wa-cream flex-fill py-4'>
           <Routes>
             <Route path='/' element={<Home />}></Route>
             <Route path='/about' element={<About />}></Route>

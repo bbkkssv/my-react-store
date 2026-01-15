@@ -1,4 +1,3 @@
-import './Catalog.css';
 import Product from "../components/Product";
 import { useEffect,useState } from "react";
 import DataService from "../services/dataService";
@@ -37,16 +36,16 @@ function Catalog() {
 
   return (
     <div className="container py-5">
-      <h1 className="text-center text-light fw-bold mb-5" style={{fontSize: '3rem'}}>Our Amazing Catalog</h1>
+      <h1 className="text-center fw-bold mb-5 display-4 text-wa-brown">Our Amazing Catalog</h1>
       
       <div className="filters mb-4">
-        <button className="btn btn-dark" onClick={clearFilter}>All</button>
+        <button className="btn btn-wa-green" onClick={clearFilter}>All</button>
         {catergories.map((cat) => (
-          <button key={cat} className="btn btn-dark ms-2 text-capitalize" onClick={() => filter(cat)}>{cat}</button>
+          <button key={cat} className="btn ms-2 text-capitalize btn-wa-green" onClick={() => filter(cat)}>{cat}</button>
         ))}
       </div>
 
-      <hr className="text-light mb-4" />
+      <hr className="catalog-hr mb-4" />
 
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         {productsToShow.map(prod => (
