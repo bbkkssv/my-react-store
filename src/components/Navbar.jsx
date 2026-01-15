@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom'
+import { IconShoppingCart } from '@tabler/icons-react';
+
+import { useContext } from 'react';
+import GlobalContext from '../state/globalContext'; 
 
 // Navigation bar component
 function Navbar() {
+const user = useContext(GlobalContext).user;
+const cart = useContext(GlobalContext).cart;
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top shadow-sm bg-wa-cream border-bottom-wa-green">
       <div className="container-fluid px-4">
@@ -44,6 +51,18 @@ function Navbar() {
             </li>
 
           </ul>
+
+          <div className='d-flex align-items-center gap-3'>
+            <div className='position-relative'>
+              <IconShoppingCart stroke={2} size={24} className='text-wa-brown' />
+              {cart.length > 0 && (
+                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
+                  {cart.length}
+                </span>
+              )}
+            </div>
+            <div className='fw-semibold text-wa-brown'>{user.name}</div>
+        </div>
         </div>
       </div>
     </nav>
