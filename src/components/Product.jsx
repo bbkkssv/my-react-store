@@ -1,9 +1,11 @@
 import QuantityPicker from "./QuantityPicker";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import GlobalContext from '../state/globalContext';
 
 // Product card component - displays product info and handles quantity/total calculation
 function Product(props){
     const [quantity, setQuantity] = useState(1);
+    const globalAdd = useContext(GlobalContext).addProductToCart;
 
     // Updates quantity when changed in QuantityPicker
     function handleQuantityChange(qty) {
@@ -14,6 +16,16 @@ function Product(props){
     function getTotal() {
         let total = props.data.price * quantity;
         return total.toFixed(2);
+    }
+
+    function onAdd() {
+        console.log("Adding product...");
+        console.log(props.data)
+        
+        let fixedProduct = {...props.data}
+        fixedProduct.quantity = quantity
+        
+        globalAdd(fixedProduct)
     }
 
     return(
@@ -34,6 +46,12 @@ function Product(props){
                     <div className="pt-3 border-top">
                         <QuantityPicker onChange={handleQuantityChange} />
                     </div>
+                    <button 
+                        className="btn btn-wa-green w-100 mt-3"
+                        onClick={onAdd}
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </div>

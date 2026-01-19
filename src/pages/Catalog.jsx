@@ -37,7 +37,7 @@ function Catalog() {
 
   return (
     <div className="container py-5">
-      <h1 className="text-center fw-bold mb-5 display-4 text-wa-brown">Our Amazing Catalog</h1>
+      <h1 className="text-center fw-bold mb-5 mt-5 display-4 text-wa-brown">Whispering Acres Merch</h1>
       
       <div className="filters mb-4">
         <button className="btn btn-wa-green" onClick={clearFilter}>All</button>

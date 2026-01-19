@@ -9,6 +9,16 @@ function Navbar() {
 const user = useContext(GlobalContext).user;
 const cart = useContext(GlobalContext).cart;
 
+  function getTotalItems() {
+    let sum = 0
+
+    for(let i=0; i < cart.length; i++){
+      sum = sum + cart[i].quantity
+    }
+
+    return sum
+  }
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top shadow-sm bg-wa-cream border-bottom-wa-green">
       <div className="container-fluid px-4">
@@ -52,17 +62,12 @@ const cart = useContext(GlobalContext).cart;
 
           </ul>
 
-          <div className='d-flex align-items-center gap-3'>
-            <div className='position-relative'>
-              <IconShoppingCart stroke={2} size={24} className='text-wa-brown' />
-              {cart.length > 0 && (
-                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
-                  {cart.length}
-                </span>
-              )}
-            </div>
-            <div className='fw-semibold text-wa-brown'>{user.name}</div>
-        </div>
+          <div className='d-flex align-items-center gap-2'>
+            <div className='nav-link fw-semibold px-3 rounded text-wa-brown'>{user.name}</div>
+            <Link to={"/cart"} className='btn btn-outline-wa-green d-flex align-items-center gap-2'>
+              <IconShoppingCart/> Cart ({getTotalItems()})
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

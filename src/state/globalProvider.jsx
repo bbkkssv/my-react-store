@@ -7,7 +7,7 @@ function GlobalProvider(props){
     const [user, _setUser] = useState({name: "Bob", id: 63}); // User state
 
     function addProductToCart(product) {
-        setCart([...cart, product]);
+        setCart(prevCart => [...prevCart, product]); // Had some issues with quantities not updating in cart. This should fix it.
     }
 
     function clearCart() {
